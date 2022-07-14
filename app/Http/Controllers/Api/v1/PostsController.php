@@ -52,7 +52,7 @@ class PostsController extends Controller
         $validatedData = Validator::make($request->all(), [
             'name' => 'required|max:200',
             'body' => 'required|max:1000',
-            'price' => 'required',
+            'price' => 'required|integer',
             'image_main' => 'required'
 
         ]);
@@ -74,7 +74,7 @@ class PostsController extends Controller
         if (!is_null($request->image_middle)) {
             PostImage::create([
                 'post_id' => $post->id,
-                'image' => $request->image_middle,
+                'image' => $request->image_middle
             ]);
         }
 
