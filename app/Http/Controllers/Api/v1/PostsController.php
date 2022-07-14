@@ -17,7 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::get();
         $posts_result = [];
         foreach ($posts as $post) {
             $posts_result[] = [
@@ -25,7 +25,7 @@ class PostsController extends Controller
                 'name' => $post->name,
                 'body' => $post->body,
                 'price' => $post->price,
-                'images' => $post->images()->first()
+                'images' => $post->images()->first(),
             ];
         }
         return response()->json($posts_result, 201);
@@ -74,7 +74,7 @@ class PostsController extends Controller
         if (!is_null($request->image_middle)) {
             PostImage::create([
                 'post_id' => $post->id,
-                'image' => $request->image_middle
+                'image' => $request->image_middle,
             ]);
         }
 

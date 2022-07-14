@@ -11,24 +11,24 @@
                     </div>
                     <form>
                         <div class="mb-3">
-                            <label for="" class="form-label">Название</label>
+                            <label for="" class="form-label">Название (максимум 200 букв)</label>
                             <input type="text" v-model:form="form.name" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Описание</label>
+                            <label for="" class="form-label">Описание (максимум 1000 букв)</label>
                             <textarea type="text" v-model:form="form.body" class="form-control"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Фото#1</label>
+                            <label for="" class="form-label">ссылка на фото#1</label>
                             <input type="text" v-model:form="form.image_main" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Фото#2(необязательное поле)</label>
-                            <input type="text" class="form-control">
+                            <label for="" class="form-label">ссылка на фото#2(необязательное поле)</label>
+                            <input type="text" v-model:form="form.image_middle" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Фото#3(необязательное поле)</label>
-                            <input type="text" class="form-control">
+                            <label for="" class="form-label">ссылка на фото#3(необязательное поле)</label>
+                            <input type="text" v-model:form="form.image_last"  class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Цена</label>
@@ -52,7 +52,9 @@ export default {
             name:"",
             body: "",
             price: "",
-            image_main: ""
+            image_main: "",
+            image_middle:"",
+            image_last:"",
         },
         error: false
     }),
